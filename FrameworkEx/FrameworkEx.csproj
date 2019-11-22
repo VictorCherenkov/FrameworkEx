@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{87CC4A36-0475-4C81-8802-B16EFCB3FE80}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FrameworkEx</RootNamespace>
+    <AssemblyName>FrameworkEx</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accumulator.cs" />
+    <Compile Include="ArgsParser.cs" />
+    <Compile Include="Aspects\Continuations.cs" />
+    <Compile Include="Aspects\Define.cs" />
+    <Compile Include="Aspects\Invokers\Always.cs" />
+    <Compile Include="Aspects\Invokers\If.cs" />
+    <Compile Include="Aspects\Invokers\IfCast.cs" />
+    <Compile Include="Aspects\Invokers\IfNotNull.cs" />
+    <Compile Include="Aspects\Using.cs" />
+    <Compile Include="Aspects\Wrappers\Wrap.cs" />
+    <Compile Include="Aspects\Wrappers\Lock.cs" />
+    <Compile Include="Aspects\Wrappers\MeasureDuration.cs" />
+    <Compile Include="Aspects\Wrappers\TryCatch.cs" />
+    <Compile Include="Aspects\Wrappers\TryCatchFinally.cs" />
+    <Compile Include="Aspects\Wrappers\TryCatchThrow.cs" />
+    <Compile Include="BooleanExtensions.cs" />
+    <Compile Include="BytesConverter.cs" />
+    <Compile Include="ComparerUtils.cs" />
+    <Compile Include="DataContractSerializationUtils.cs" />
+    <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="DictionaryExtensions.cs" />
+    <Compile Include="DirectoryEx.cs" />
+    <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="EnumExtensions.cs" />
+    <Compile Include="AssemblyExtensions.cs" />
+    <Compile Include="ExceptionExtensions.cs" />
+    <Compile Include="FileReader.cs" />
+    <Compile Include="IDisposableExtensions.cs" />
+    <Compile Include="KeyEqualityComparer.cs" />
+    <Compile Include="MergeUtils.cs" />
+    <Compile Include="NumberExtensions.cs" />
+    <Compile Include="ObjectExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RangeExtensions.cs" />
+    <Compile Include="StringBuilderExtensions.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="TimeSpanExtensions.cs" />
+    <Compile Include="TupleExtensions.cs" />
+    <Compile Include="Void.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1 @@
+nuget push %1 3bbe5eec-4723-48b7-951d-db425d843946 -Source https://api.nuget.org/v3/index.json
